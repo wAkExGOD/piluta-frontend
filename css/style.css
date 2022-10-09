@@ -49,6 +49,17 @@
   background-color: var(--gray-dark);
 }
 
+
+*::selection {
+  color: var(--purple-dark);
+  background: var(--white);
+}
+*::-moz-selection {
+  color: var(--purple-dark);
+  background: var(--white);
+}
+
+
 @font-face {
   font-family: "Monument Extended";
   src: url("../fonts/MonumentExtended-Regular.woff2") format("woff2"),
@@ -68,6 +79,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 
 body {
   color: var(--white);
@@ -133,25 +145,24 @@ h3 {
   background-size: cover;
   transition: var(--transition);
 }
+.nav-arrow.top { transform: rotate(-90deg); }
+.nav-arrow.bottom { transform: rotate(90deg); }
+.nav-arrow.left { transform: rotate(-180deg); }
+.nav-arrow.right { transform: rotate(0deg); }
 .nav-arrow:hover {
   opacity: .5;
 }
 
 .decorative-circle {
+  z-index: 0;
   display: inline-block;
   position: absolute;
   width: calc(var(--decorative-circle-radius) * 2);
   height: calc(var(--decorative-circle-radius) * 2);
   background: var(--radial-light);
 }
-
-*::selection {
-  color: var(--purple-dark);
-  background: var(--white);
-}
-*::-moz-selection {
-  color: var(--purple-dark);
-  background: var(--white);
+.content {
+  z-index: 1;
 }
 
 /* // App container // */
@@ -189,6 +200,7 @@ h3 {
 /* Section */
 .section {
   padding: 0 6.375rem;
+  margin-bottom: 21.25rem;
 }
 
 /* Home section */
@@ -208,6 +220,9 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+.home-banner .banner .left h1 {
+  font-weight: 400;
 }
 .home-banner .banner .left span {
   font-size: 2.25rem;
@@ -251,12 +266,113 @@ h3 {
   position: relative;
 }
 .home-banner .content {
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .home-banner .decorative-circle {
-  z-index: 0;
   top: calc(100% - var(--decorative-circle-radius) + 2.5rem);
+}
+
+/* Game cards */
+.ticket-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ticket-game.section {
+  padding: 0;
+}
+.ticket-game .tickets {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ticket-game .tickets .description,
+.ticket-game .tickets .cards {
+  flex-basis: calc(50% - 3.6rem);
+}
+.ticket-game .tickets .description {
+  position: relative;
+}
+.ticket-game .tickets .description .title {
+  font-size: 3.75rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+.ticket-game .tickets .description .text {
+  font-size: 1.625rem;
+}
+.ticket-game .tickets .description .tickets-decoration {
+  position: absolute;
+  width: 180%;
+  top: -21rem;
+  left: -16.5rem;
+  z-index: 0;
+}
+.ticket-game .tickets .description .container {
+  width: 39.5rem;
+  padding: 3.375rem 3.125rem;
+  background: rgba(1, 7, 23, 0.74);
+  backdrop-filter: blur(1.625rem);
+  border-radius: 1.25rem;
+  z-index: 1;
+}
+.ticket-game .tickets .cards {
+  position: relative;
+  max-width: 562.5rem;
+}
+.ticket-game .tickets .cards .container {
+  display: flex;
+  flex-wrap: none;
+  align-items: stretch;
+  gap: 3.875rem;
+}
+.ticket-game .tickets .cards .game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.625rem 4.5rem;
+  border-radius: 1.625rem;
+  background: var(--purple);
+}
+.ticket-game .tickets .cards .game-card .game-card__amount {
+  font-size: 2.75rem;
+  margin-bottom: 2rem;
+}
+.ticket-game .tickets .cards .game-card .game-card__ending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5.375rem;
+}
+.ticket-game .tickets .cards .game-card .game-card__ending .left {
+  margin-bottom: 0.375rem;
+}
+.ticket-game .tickets .cards .game-card .game-card__ending .progress {
+  position: relative;
+  width: 10.25rem;
+  height: 5px;
+  border-radius: 2px;
+  margin-bottom: 0.375rem;
+  background: var(--white);
+}
+.ticket-game .tickets .cards .game-card .game-card__ending .progress .ready {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  /* change width by js */
+  height: 100%;
+  border-radius: 2px;
+  box-shadow: 0px 0px 4px #00FFF0;
+  background: var(--main-gradient);
+}
+.ticket-game .tickets .cards .next-btn {
+  position: absolute;
+  content: '';
+  top: 50%;
+  right: 0;
 }
