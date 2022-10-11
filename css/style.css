@@ -173,8 +173,12 @@ a {
 
 /* // App container // */
 .app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: var(--purple);
   overflow: hidden;
+  min-height: 100vh;
 }
 
 /* Header */
@@ -600,6 +604,7 @@ a {
 .footer {
   padding: 8.375em;
   background: var(--purple-light);
+  z-index: 1;
 }
 .footer .site-sections {
   display: flex;
@@ -612,4 +617,23 @@ a {
 }
 .footer .links {
   justify-content: center;
+}
+
+/* Log in */
+.log-in {
+  position: relative;
+  padding: 12rem 0;
+}
+.log-in .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.log-in form#log-in {
+  background: var(--purple);
+  border-radius: 0.625rem;
+  padding: 4.375rem 3.5rem;
+}
+.log-in .decorative-circle {
+  bottom: calc(0 - var(--decorative-circle-radius) + 2.5rem);
 }
