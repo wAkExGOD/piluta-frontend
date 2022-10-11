@@ -109,6 +109,11 @@ h3 {
   font-size: 2.25rem;
 }
 
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
 .button {
   display: inline-block;
   
@@ -176,25 +181,25 @@ h3 {
 .header {
   padding: 3rem 8rem;
 }
-.header .links {
+.links {
   display: flex;
   justify-content: flex-end;
   gap: 1.5rem;
 }
-.header .links .links__link a {
+.links .links__link a {
   display: block;
   width: 2.125rem;
   height: 2.125rem;
   background-size: 100%;
   background-repeat: no-repeat;
 }
-.header .links .links__link.telegram a {
+.links .links__link.telegram a {
   background-image: url("../icons/telegram.svg");
 }
-.header .links .links__link.twitter a {
+.links .links__link.twitter a {
   background-image: url("../icons/twitter.svg");
 }
-.header .links .links__link.discord a {
+.links .links__link.discord a {
   background-image: url("../icons/discord.svg");
 }
 
@@ -588,4 +593,22 @@ h3 {
   background: #4FF3A7;
   top: calc(50% - 0.81rem);
   left: 0;
+}
+
+/* Footer */
+.footer {
+  padding: 8.375em;
+  background: var(--purple-light);
+}
+.footer .site-sections {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3.25rem;
+}
+.footer .site-sections .site-section {
+  font-size: 1.25rem;
+}
+.footer .links {
+  justify-content: center;
 }
