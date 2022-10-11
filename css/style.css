@@ -138,7 +138,7 @@ h3 {
 }
 
 .nav-arrow {
-  cursor: pointer;
+  /* cursor: pointer; */
   display: inline-block;
   width: var(--nav-arrow-size);
   height: var(--nav-arrow-size);
@@ -150,9 +150,9 @@ h3 {
 .nav-arrow.bottom { transform: rotate(90deg); }
 .nav-arrow.left { transform: rotate(-180deg); }
 .nav-arrow.right { transform: rotate(0deg); }
-.nav-arrow:hover {
+/* .nav-arrow:hover {
   opacity: .5;
-}
+} */
 
 .decorative-circle {
   z-index: 0;
@@ -415,6 +415,7 @@ h3 {
 }
 .ticket-game .statistics {
   width: 100%;
+  z-index: 1;
 }
 .ticket-game .statistics .content {
   display: flex;
@@ -465,6 +466,7 @@ h3 {
   justify-content: center;
   text-align: center;
   flex-wrap: nowrap;
+  gap: 5.875rem;
   margin-bottom: 9.75rem;
 }
 .rewards .rewards-list .reward-card {
