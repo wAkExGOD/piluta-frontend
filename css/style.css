@@ -452,6 +452,7 @@ h3 {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-bottom: 6.25rem;
 }
 .rewards .section__title {
   margin-bottom: 2.375rem;
@@ -509,4 +510,82 @@ h3 {
 .rewards .decorative-circle {
   top: calc(0% - var(--decorative-circle-radius) - 2.5rem);
   left: calc(50% - var(--decorative-circle-radius) + 2.5rem);
+}
+
+/* Roadmap */
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.roadmap > .section__title {
+  margin-bottom: 5.125rem;
+}
+.roadmap .roadmap-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.roadmap .roadmap-line .roadmap-period {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.roadmap .roadmap-line .roadmap-period:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.roadmap .roadmap-line .roadmap-period .roadmap-period__date,
+.roadmap .roadmap-line .roadmap-period .roadmap-period__description {
+  width: calc(50% - 0.81rem);
+}
+.roadmap .roadmap-line .roadmap-period .roadmap-period__date {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-left: 0;
+  padding-right: 3.125rem;
+
+  font-size: 1.875rem;
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.roadmap .roadmap-line .roadmap-period:nth-child(even) .roadmap-period__date {
+  justify-content: flex-start;
+  padding-left: 3.125rem;
+  padding-right: 0;
+}
+.roadmap .roadmap-line .roadmap-period .roadmap-period__description {
+  padding-right: 0;
+  padding-left: 6.25rem;
+  padding-top: 6.625rem;
+  padding-bottom: 6.625rem;
+}
+.roadmap .roadmap-line .roadmap-period:nth-child(even) .roadmap-period__description {
+  padding-right: 6.25rem;
+  padding-left: 0;
+}
+.roadmap .roadmap-line .roadmap-period .roadmap-period__line {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 1.62rem;
+}
+.roadmap .roadmap-line .roadmap-period .roadmap-period__line i {
+  display: block;
+  width: 0.25rem;
+  border-radius: 0.1rem;
+  height: 100%;
+  background: var(--white);
+}
+.roadmap .roadmap-line .roadmap-period .roadmap-period__line::after {
+  position: absolute;
+  content: '';
+  width: 1.62rem;
+  height: 1.62rem;
+  border-radius: 50%;
+  background: #4FF3A7;
+  top: calc(50% - 0.81rem);
+  left: 0;
 }
