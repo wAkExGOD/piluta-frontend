@@ -209,6 +209,7 @@ a {
   margin-bottom: 21.25rem;
 }
 .section .section__title {
+  text-align: center;
   font-weight: 400;
   font-size: 2.375rem;
   color: var(--white);
