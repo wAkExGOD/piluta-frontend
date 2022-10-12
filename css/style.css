@@ -81,6 +81,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.woff") format('woff'),
+      url("../fonts/Montserrat-Regular.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 body {
   color: var(--white);
@@ -88,6 +97,11 @@ body {
   font-family: "Monument Extended", sans-serif;
   letter-spacing: 0.0625rem;
   line-height: 1.2;
+}
+
+main {
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 li {
@@ -167,15 +181,55 @@ a {
   height: calc(var(--decorative-circle-radius) * 2);
   background: var(--radial-light);
 }
-.content {
-  z-index: 1;
+
+/* Form */
+.form {
+  min-width: 26rem;
+}
+.form .form__title {
+  text-align: center;
+  font-weight: 400;
+  font-size: 2.375rem;
+  margin-bottom: 3.125rem;
+}
+.form .form__container {
+  background: var(--purple);
+  border-radius: 1.625rem;
+  padding: 4.375rem 3.5rem 3rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.form .form__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form .form__input {
+  font-family: "Montserrat";
+  background: #F3F3F3;
+  color: black;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 0.625rem;
+  outline: none;
+}
+.form .form__input::placeholder {
+  color: #55545B;
+}
+.form .form__submit-btn {
+  font-family: "Monument Extended", sans-serif;
+  color: var(--white);
+  cursor: pointer;
+  background: var(--main-gradient);
+  padding: 0.5rem 0;
 }
 
 /* // App container // */
 .app-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
   background: var(--purple);
   overflow: hidden;
   min-height: 100vh;
@@ -285,6 +339,9 @@ a {
 .home-banner {
   position: relative;
 }
+.home-banner *:not(.decorative-circle) {
+  z-index: 1;
+}
 .home-banner .content {
   display: flex;
   flex-direction: column;
@@ -299,6 +356,9 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.ticket-game *:not(.decorative-circle) {
+  z-index: 1;
 }
 .ticket-game.section {
   padding: 0;
@@ -348,11 +408,11 @@ a {
   position: relative;
   max-width: 562.5rem;
 }
-.ticket-game .tickets .cards .content {
+.ticket-game .tickets .cards {
   display: flex;
   justify-content: flex-end;
 }
-.ticket-game .tickets .cards .container {
+.ticket-game .tickets .cards .cards-container {
   position: relative;
   width: 56.25rem;
   display: flex;
@@ -361,7 +421,7 @@ a {
   align-items: stretch;
   gap: 3.875rem;
 }
-.ticket-game .tickets .cards .container::after {
+.ticket-game .tickets .cards .cards-container::after {
   position: absolute;
   content: '';
   top: 0;
@@ -426,8 +486,6 @@ a {
 .ticket-game .statistics {
   width: 100%;
   z-index: 1;
-}
-.ticket-game .statistics .content {
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
@@ -464,6 +522,9 @@ a {
   text-align: center;
   margin-bottom: 6.25rem;
 }
+.rewards *:not(.decorative-circle) {
+  z-index: 1;
+}
 .rewards .section__title {
   margin-bottom: 2.375rem;
 }
@@ -493,6 +554,7 @@ a {
   overflow: hidden;
 }
 .rewards .rewards-list .reward-card .reward-card__title {
+  font-weight: 400;
   font-size: 2.25rem;
 }
 .rewards .rewards-list .reward-card .reward-card__image {
@@ -606,6 +668,9 @@ a {
   background: var(--purple-light);
   z-index: 1;
 }
+.footer *:not(.decorative-circle) {
+  z-index: 1;
+}
 .footer .site-sections {
   display: flex;
   justify-content: center;
@@ -622,18 +687,32 @@ a {
 /* Log in */
 .log-in {
   position: relative;
-  padding: 12rem 0;
-}
-.log-in .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  /* padding: 12rem 0; */
+  min-height: 88vh;
+  margin-bottom: 0;
 }
-.log-in form#log-in {
-  background: var(--purple);
-  border-radius: 0.625rem;
-  padding: 4.375rem 3.5rem;
+.log-in *:not(.decorative-circle) {
+  z-index: 1;
 }
 .log-in .decorative-circle {
-  bottom: calc(0 - var(--decorative-circle-radius) + 2.5rem);
+  bottom: calc(0% - var(--decorative-circle-radius));
+  left: calc(50% - var(--decorative-circle-radius) - 2.5rem);
+}
+.log-in #log-in .nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3.375rem;
+}
+.log-in #log-in .nav .item {
+  font-size: 0.75rem;
+  letter-spacing: normal;
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
