@@ -25,21 +25,87 @@
       </header>
 
       <main>
-        <section class="section log-in">
-          <form action="#" class="form" id="log-in">
+        <section class="section log-in" style="display: none">
+          <form action="#" class="form step-1" id="log-in">
             <h2 class="form__title">Log In</h2>
 
             <div class="form__container">
               <div class="form__inputs">
-                <input class="form__input" type="text" placeholder="Email">
-                <input class="form__input" type="text" placeholder="Password">
+                <input name="email" class="form__input" type="text" placeholder="Email">
+              </div>
+
+              <input class="form__input form__submit-btn" type="submit" value="Send a code">
+  
+              <div class="form__nav">
+                <a class="form__nav-item" href="#">Back</a>
+              </div>
+            </div>
+          </form>
+          <div class="decorative-circle"></div>
+        </section>
+        <section class="section log-in" style="">
+          <form action="#" class="form step-2" id="log-in">
+            <h2 class="form__title">Log In</h2>
+
+            <div class="form__container">
+              <div class="form__inputs">
+                <input name="email" class="form__input" type="text" placeholder="Email">
+                <input class="form__input form__submit-btn" type="submit" value="Send a code">
+                <div class="apply">
+                  <input name="code" class="form__input" type="text" placeholder="Code">
+                  <button class="form__btn">
+                    <img src="./icons/ok.svg" alt="apply">
+                  </button>
+                </div>
+              </div>
+
+              <div class="form__warnings">
+                <p class="form__warning">Success!</p>
+                <p class="form__warning">4:59 to resend</p>
+              </div>
+  
+              <div class="form__nav">
+                <a class="form__nav-item" href="#">Back</a>
+              </div>
+            </div>
+          </form>
+          <div class="decorative-circle"></div>
+        </section>
+        <section class="section log-in" style="display: none">
+          <form action="#" class="form step-4" id="log-in">
+            <h2 class="form__title">Log In</h2>
+
+            <div class="form__container">
+              <div class="form__inputs">
+                <input name="email" class="form__input" type="text" placeholder="Email">
+                <input name="password" class="form__input" type="text" placeholder="Password">
               </div>
 
               <input class="form__input form__submit-btn" type="submit" value="Login">
   
-              <div class="nav">
-                <a class="item" href="#">Register</a>
-                <a class="item" href="#">Forgot password</a>
+              <div class="form__nav">
+                <a class="form__nav-item" href="#">Register</a>
+                <a class="form__nav-item" href="#">Forgot password</a>
+              </div>
+            </div>
+          </form>
+          <div class="decorative-circle"></div>
+        </section>
+        <section class="section sign-up" style="display: none">
+          <form action="#" class="form" id="sign-up">
+            <h2 class="form__title">Sign UP</h2>
+            <div class="form__container">
+              <div class="form__inputs">
+                <input name="email" class="form__input" type="text" placeholder="Email">
+                <input name="password" class="form__input" type="text" placeholder="Password">
+                <input name="password-repeat" class="form__input" type="text" placeholder="Repeat password">
+                <input name="ref_code" class="form__input" type="text" placeholder="Refferral code">
+              </div>
+
+              <input class="form__input form__submit-btn" type="submit" value="Registration">
+  
+              <div class="form__nav">
+                <a class="form__nav-item" href="#">Already have an account?</a>
               </div>
             </div>
           </form>

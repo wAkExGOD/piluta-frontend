@@ -25,8 +25,11 @@
   );
   --decorative-circle-radius: 55rem;
   --nav-arrow-size: 2.5rem;
+  --header-height: 8.125rem;
+  --footer-height: 23.625rem;
 
   --transition: 0.3s all ease-in-out;
+  --transition-fast: 0.1s all ease-in-out;
 }
 
 ::-webkit-scrollbar {
@@ -92,6 +95,7 @@
 
 
 body {
+  min-height: 100vh;
   color: var(--white);
   /* font-family: 'Segoe UI', sans-serif; */
   font-family: "Monument Extended", sans-serif;
@@ -100,8 +104,15 @@ body {
 }
 
 main {
-  flex-grow: 1;
-  overflow: hidden;
+  /* flex-grow: 1; */
+  /* overflow: hidden; */
+  /* flex: 1 0 auto; */
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-height));
+}
+main > * {
+  flex: 1;
 }
 
 li {
@@ -198,14 +209,38 @@ a {
   padding: 4.375rem 3.5rem 3rem 3.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 .form .form__inputs {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 2rem;
+}
+.form .form__warnings {
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form .form__warning:not(:last-child) {
+  margin-bottom: 0.4rem;
+}
+.form .form__nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3.375rem;
+}
+.form .form__nav .form__nav-item {
+  font-size: 0.75rem;
+  letter-spacing: normal;
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .form .form__input {
+  font-size: 0.75rem;
   font-family: "Montserrat";
   background: #F3F3F3;
   color: black;
@@ -213,9 +248,24 @@ a {
   border: none;
   border-radius: 0.625rem;
   outline: none;
+  transition: var(--transition-fast);
+}
+.form .form__input:focus {
+  /* background: var(--gray-light); */
+  opacity: .75;
 }
 .form .form__input::placeholder {
   color: #55545B;
+}
+.form .form__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
 }
 .form .form__submit-btn {
   font-family: "Monument Extended", sans-serif;
@@ -224,24 +274,34 @@ a {
   background: var(--main-gradient);
   padding: 0.5rem 0;
 }
+.form .form__btn:focus,
+.form .form__submit-btn:focus {
+  opacity: .75;
+}
 
 /* // App container // */
 .app-container {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: var(--purple);
   overflow: hidden;
-  min-height: 100vh;
 }
 
 /* Header */
 .header {
-  padding: 3rem 8rem;
+  /* padding: 3rem 8rem; */
+  background: rgb(var(--purple) / 74%);
+  backdrop-filter: blur(5rem);
+  z-index: 1;
+  padding: 1rem 8rem;
+  height: var(--header-height);
 }
 .links {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  height: 100%;
   gap: 1.5rem;
 }
 .links .links__link a {
@@ -348,7 +408,7 @@ a {
   align-items: center;
 }
 .home-banner .decorative-circle {
-  top: calc(100% - var(--decorative-circle-radius) + 2.5rem);
+  top: calc(100% - var(--decorative-circle-radius) + 4rem);
 }
 
 /* Game cards */
@@ -664,7 +724,13 @@ a {
 
 /* Footer */
 .footer {
-  padding: 8.375em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: var(--footer-height);
+  flex: 0 0 auto;
+  padding: 1rem 8.375rem;
   background: var(--purple-light);
   z-index: 1;
 }
@@ -681,38 +747,44 @@ a {
   font-size: 1.25rem;
 }
 .footer .links {
+  height: auto;
   justify-content: center;
 }
 
-/* Log in */
-.log-in {
+/* Log in and Sign up */
+.log-in,
+.sign-up {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
   /* padding: 12rem 0; */
-  min-height: 88vh;
   margin-bottom: 0;
 }
-.log-in *:not(.decorative-circle) {
+.log-in *:not(.decorative-circle),
+.sign-up *:not(.decorative-circle) {
   z-index: 1;
 }
-.log-in .decorative-circle {
+.log-in .decorative-circle,
+.sign-up .decorative-circle {
   bottom: calc(0% - var(--decorative-circle-radius));
   left: calc(50% - var(--decorative-circle-radius) - 2.5rem);
 }
-.log-in #log-in .nav {
+.log-in #log-in.step-2 .apply {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 3.375rem;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
 }
-.log-in #log-in .nav .item {
-  font-size: 0.75rem;
-  letter-spacing: normal;
-  background: var(--main-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.log-in #log-in.step-2 .apply .form__input {
+  flex: 1;
+}
+.log-in #log-in.step-2 .apply button {
+  width: 2rem;
+  height: 100%;
+  padding: 0.5rem;
+}
+.sugn-up *:not(.decorative-circle) {
+  z-index: 1;
 }
