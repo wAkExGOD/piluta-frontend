@@ -121,6 +121,7 @@ li {
 
 img {
   max-width: 100%;
+  max-height: 100%;
   width: 100%;
 }
 
@@ -290,6 +291,9 @@ a {
 
 /* Header */
 .header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   /* padding: 3rem 8rem; */
   background: rgb(var(--purple) / 74%);
   backdrop-filter: blur(5rem);
@@ -297,11 +301,17 @@ a {
   padding: 1rem 8rem;
   height: var(--header-height);
 }
+.header.no-logo .logo {
+  display: none;
+}
+.header .links {
+  height: 100%;
+  margin-left: auto;
+}
 .links {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 100%;
   gap: 1.5rem;
 }
 .links .links__link a {
@@ -747,7 +757,6 @@ a {
   font-size: 1.25rem;
 }
 .footer .links {
-  height: auto;
   justify-content: center;
 }
 
@@ -785,6 +794,68 @@ a {
   height: 100%;
   padding: 0.5rem;
 }
-.sugn-up *:not(.decorative-circle) {
-  z-index: 1;
+
+/* Profile */
+.profile {
+  display: grid;
+  height: 100vh;
+  max-height: 100vh;
+  grid-template-areas:
+    'nav header'
+    'nav main';
+  grid-template-columns: 14.875rem 1fr;
+  grid-template-rows: 3.375rem 1fr;
+
+  padding: 0;
+  margin: 0;
+}
+.profile .profile__nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2.25rem;
+}
+.profile .profile__header {
+  grid-area: header;
+}
+.profile .profile__main {
+  grid-area: main;
+}
+.profile .profile__nav .profile_sections {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25rem;
+  width: 100%;
+}
+.profile .profile__nav .profile_sections .link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 0;
+  padding-left: 2.5rem;
+  gap: 0.875rem;
+}
+.profile .profile__nav .profile_sections .link.link-ido {
+  padding-left: 2.375rem;
+}
+.profile .profile__nav .profile_sections .link img {
+  width: 1.5rem;
+  /* height: 1.5rem; */
+}
+.profile .profile__nav .profile_sections .link.active span {
+  background: var(--main-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.profile .profile__nav .profile_sections .link.active::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: calc(50% - (1.5rem / 2));
+  width: 2px;
+  border-radius: 4px;
+  height: 1.5rem;
+  background: var(--main-gradient);
 }
