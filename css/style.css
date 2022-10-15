@@ -246,7 +246,8 @@ a {
 }
 
 /* Form */
-.form {
+.log-in .form,
+.sign-up .form {
   min-width: 26rem;
 }
 .form .form__title {
@@ -258,9 +259,12 @@ a {
 .form .form__container {
   background: var(--purple);
   border-radius: 1.625rem;
-  padding: 4.375rem 3.5rem 3rem 3.5rem;
   display: flex;
   flex-direction: column;
+}
+.log-in .form .form__container
+.sign-up .form .form__container {
+  padding: 4.375rem 3.5rem 3rem 3.5rem;
 }
 .form .form__inputs {
   display: flex;
@@ -997,7 +1001,7 @@ a {
   grid-column-gap: 3rem;
   grid-row-gap: 2.375rem;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 18rem 1fr;
+  grid-template-rows: auto 1fr;
 }
 .profile .profile__main .left-block .referrals {
   grid-area: referrals;
@@ -1088,6 +1092,23 @@ a {
 } 
 .profile .profile__main .history .transactions-table tr:nth-child(even) {
   background: #0F1423;
+}
+.profile .profile__main .support {
+  /* padding: 1.75rem 3.125rem; */
+}
+.profile .profile__main .support .block__stats {
+  padding: 0;
+  overflow: visible;
+}
+.profile .profile__main .support .form__container {
+  padding: 1.75rem 3.125rem;
+  background: transparent;
+}
+.profile .profile__main .support .form__inputs .form__input {
+  background: #0F1423;
+  color: var(--gray-light);
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
 }
 
 
