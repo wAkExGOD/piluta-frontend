@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piluta</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="app-container">
+      <section class="section profile-layout wallet">
+        <nav class="profile__nav">
+          <a class="logo" href="/">
+            <img src="./icons/piluta-logo.png" alt="Piluta_Logo" />
+          </a>
+          <ul class="profile_sections">
+            <a class="link link-profile" href="#">
+              <img src="./icons/profile.svg" alt="profile_section" />
+              <span>Profile</span>
+            </a>
+            <a class="link link-wallet active" href="#">
+              <img src="./icons/wallet.svg" alt="wallet_section" />
+              <span class="highlited">Wallet</span>
+            </a>
+            <a class="link link-game" href="#">
+              <img src="./icons/game.svg" alt="game_section" />
+              <span>Game</span>
+            </a>
+            <a class="link link-ido" href="#">
+              <!-- <img src="./icons/ido.svg" alt="ido_section"> -->
+              <span>IDO</span>
+            </a>
+            <a class="link link-level" href="#">
+              <img src="./icons/level.svg" alt="level_section" />
+              <span>Level</span>
+            </a>
+          </ul>
+          <ul class="links">
+            <li class="links__link telegram">
+              <a target="_blank" href="https://t.me/Piluta"></a>
+            </li>
+            <li class="links__link twitter">
+              <a target="_blank" href="https://twitter.com/PilutaOfficial"></a>
+            </li>
+            <li class="links__link discord">
+              <a target="_blank" href="https://discord.gg/7EWCaEJw7V"></a>
+            </li>
+          </ul>
+        </nav>
+        <header class="profile__header">
+          <div class="profile-info">
+            <div class="level">19</div>
+            <div class="container">
+              <span class="nickname">Nickname</span>
+              <div class="level-progress"></div>
+            </div>
+          </div>
+          <span class="balance highlited">25$</span>
+          <i class="log-out"></i>
+        </header>
+        <div class="profile__main">
+          <div class="container">
+            <div class="block wallet">
+              <div class="block__description">
+                <h2 class="block__title">Wallet</h2>
+                <div class="wallet__sections">
+                  <button class="wallet__section button contained">
+                    Deposit
+                  </button>
+                  <button class="wallet__section button outlined">
+                    Withdraw
+                  </button>
+                </div>
+              </div>
+              <div class="block__stats">
+                <div class="stablecoins">
+                  <h3 class="stablecoins__title">Choose Stablecoin</h3>
+                  <div class="stablecoins__variants">
+                    <div class="stablecoins__variant active">
+                      <img class="image" src="./icons/usdt.svg" alt="-coin" />
+                      <span class="title">USDT</span>
+                    </div>
+                    <div class="stablecoins__variant">
+                      <img class="image" src="./icons/busd.svg" alt="-coin" />
+                      <span class="title">BUSD</span>
+                    </div>
+                    <div class="stablecoins__variant">
+                      <img class="image" src="./icons/dai.svg" alt="-coin" />
+                      <span class="title">DAI</span>
+                    </div>
+                    <div class="stablecoins__variant">
+                      <img class="image" src="./icons/usdc.svg" alt="-coin" />
+                      <span class="title">USDC</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="block deposit">
+              <div class="block__description">
+                <h2 class="block__title">Deposit</h2>
+              </div>
+              <div class="block__stats">
+                <div class="network">
+                  <h3 class="title">Choose Network</h3>
+                  <div class="network__variants">
+                    <div class="network__variant active">BEP20</div>
+                    <div class="network__variant">MATIC</div>
+                    <div class="network__variant">TRC20</div>
+                    <div class="network__variant">SOL</div>
+                    <div class="network__variant">ERC20</div>
+                  </div>
+                  <div class="network__inputs">
+                    <input
+                      class="form__input"
+                      type="text"
+                      placeholder="What's this"
+                    />
+                    <div class="input-block">
+                      <p class="text">Specify the address from which the deposit will be made</p>
+                      <div class="form__input-button">
+                        <input
+                          class="form__input"
+                          type="text"
+                          placeholder="What's this"
+                        />
+                        <button class="form__btn">
+                          <img class="icon" src="./icons/ok.svg" alt="apply" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="block history">
+              <div class="block__description">
+                <h2 class="block__title">History</h2>
+                <div class="block__text">
+                  <div class="tabs">
+                    <span class="tab active">Deposit</span>
+                    <span class="tab">Withdraw</span>
+                  </div>
+                </div>
+              </div>
+              <div class="block__stats">
+                <table class="table transactions-table">
+                  <tr>
+                    <th>Deposited</th>
+                    <th>Adress</th>
+                    <th>ID</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>11.01.1001 8:08AM</td>
+                    <td>-</td>
+                    <td>A1234567891</td>
+                    <td>Wait</td>
+                  </tr>
+                  <tr>
+                    <td>11.01.1001 8:08AM</td>
+                    <td>-</td>
+                    <td>A1234567891</td>
+                    <td>Wait</td>
+                  </tr>
+                  <tr>
+                    <td>11.01.1001 8:08AM</td>
+                    <td>-</td>
+                    <td>A1234567891</td>
+                    <td>Wait</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="decorative-circle circle-1"></div>
+          <div class="decorative-circle circle-2"></div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
