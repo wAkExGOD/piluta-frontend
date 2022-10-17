@@ -612,6 +612,7 @@ a {
 }
 .ticket-game.section {
   padding: 0;
+  margin-bottom: 12.875rem;
 }
 .ticket-game .tickets {
   width: 100%;
