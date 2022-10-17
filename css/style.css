@@ -429,6 +429,36 @@ a {
   box-shadow: 0px 0px 4px #00FFF0;
   background: var(--main-gradient);
 }
+.game-card.your .game-card__ending {
+  margin-bottom: 4.25rem;
+}
+.game-card.your .game-card__amount {
+  position: relative;
+  padding: 0.875rem 1rem;
+  background: var(--main-gradient);
+  border-bottom-left-radius: 1.625rem;
+  border-bottom-right-radius: 1.625rem;
+}
+.game-card.your .game-card__amount::before,
+.game-card.your .game-card__amount::after {
+  position: absolute;
+  content: '';
+  width: 3.25rem;
+  height: 3.25rem;
+  background: var(--main-gradient);
+  top: 0;
+}
+.game-card.your .game-card__amount::before {
+  right: 100%;
+}
+.game-card.your .game-card__amount::after {
+  left: 100%;
+}
+.game-card.your .game-card__participate .button {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-radius: 1rem 1rem 0 0;
+}
 
 /* // App container // */
 .app-container {
@@ -1273,6 +1303,14 @@ a {
 }
 
 /* Game */
+.game.profile-layout {
+  height: auto;
+  max-height: fit-content;
+  grid-template-rows: 3.375rem 1fr;
+}
+.game.profile-layout .profile__nav {
+  height: 100vh;
+}
 .game .profile__main {
   padding: 3.625rem 4.625rem;
 }
@@ -1285,7 +1323,7 @@ a {
   grid-column-gap: 4rem;
   grid-row-gap: 3.125rem;
   grid-template-columns: calc(50% - 2rem) calc(50% - 2rem);
-  /* grid-template-rows: auto 1fr; */
+  grid-template-rows: auto 1fr;
 }
 .game .profile__main .container > .your-tickets {
   grid-area: your;
@@ -1295,6 +1333,7 @@ a {
 }
 .game .profile__main .container > .tickets {
   grid-area: tickets;
+  max-height: 100%;
 }
 .game .decorative-circle.circle-1 {
   top: calc(0% - var(--decorative-circle-radius) + 10rem);
@@ -1319,12 +1358,16 @@ a {
 .game .profile__main .container > .block .bottom {
   /* overflow-y: auto; */
 }
+.game .profile__main .container > .your-tickets.block .bottom,
+.game .profile__main .container > .your-tickets .cards {
+  height: 100%;
+}
 .game .profile__main .container .cards {
   display: flex;
   flex-direction: row;
   /* overflow-x: auto; */
 }
-.game .profile__main .container .cards .game-card {
+.game .profile__main .container .cards .game-card.your {
   /* width: 15.2rem; */
   width: calc((100% / 6) * 2);
   padding: 0;
@@ -1332,36 +1375,39 @@ a {
   filter: drop-shadow(0px 0px 15px rgba(0, 255, 240, 0.25));
   overflow: hidden;
 }
-.game .profile__main .container .cards .game-card .game-card__amount {
-  position: relative;
-  padding: 0.875rem 1rem;
-  background: var(--main-gradient);
-  border-bottom-left-radius: 1.625rem;
-  border-bottom-right-radius: 1.625rem;
+.game .profile__main .container .block.tickets .cards .game-card {
+  margin-right: 0;
 }
-.game .profile__main .container .cards .game-card .game-card__amount::before,
-.game .profile__main .container .cards .game-card .game-card__amount::after {
-  position: absolute;
-  content: '';
-  width: 3.25rem;
-  height: 3.25rem;
-  background: var(--main-gradient);
-  top: 0;
+.game .profile__main .container > .tickets .game-card.your {
+  filter: none;
 }
-.game .profile__main .container .cards .game-card .game-card__amount::before {
-  right: 100%;
+.game .profile__main .container > .end-soon .game-card.your,
+.game .profile__main .container > .tickets .game-card.your {
+  padding: 1.5rem 0;
 }
-.game .profile__main .container .cards .game-card .game-card__amount::after {
-  left: 100%;
+.game .profile__main .container > .end-soon .game-card__amount,
+.game .profile__main .container > .tickets .game-card__amount {
+  background: none;
 }
-.game .profile__main .container .cards .game-card .game-card__participate .button {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-radius: 1rem 1rem 0 0;
+.game .profile__main .container > .end-soon .game-card__ending,
+.game .profile__main .container > .tickets .game-card__ending {
+  margin-bottom: 3.5rem;
+}
+.game .profile__main .container > .end-soon .game-card__amount::before,
+.game .profile__main .container > .end-soon .game-card__amount::after,
+.game .profile__main .container > .tickets .game-card__amount::before,
+.game .profile__main .container > .tickets .game-card__amount::after {
+  display: none;
+}
+.game .profile__main .container > .end-soon .game-card__participate .button,
+.game .profile__main .container > .tickets .game-card__participate .button {
+  border-radius: 2rem;
 }
 .game .profile__main .container > .tickets .top {
   display: flex;
   justify-content: flex-start;
+  gap: 1.875rem;
+  z-index: 2;
 }
 .game .profile__main .container > .tickets .top .link-all {
   margin-left: auto;
@@ -1429,4 +1475,15 @@ a {
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   cursor: pointer;
+}
+
+.game .profile__main .container > .tickets .cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 2.5rem;
+  grid-row-gap: 1.75rem;
+}
+.game .profile__main .container > .tickets .cards .game-card {
+  width: 100%;
 }
