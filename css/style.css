@@ -1497,14 +1497,23 @@ a {
 
 
 /* Level */
-.level .container {
+.level.profile-layout {
+  height: auto;
+  max-height: fit-content;
+  grid-template-rows: 3.375rem 1fr;
+}
+.level.profile-layout .profile__nav {
+  height: 100vh;
+}
+.level .profile__main > .container {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 6.75rem;
+  gap: 10.75rem;
 }
-.level .container > * {
-  max-width: 53.5rem;
+.level .profile__main .container > * {
+  width: 54rem;
+  max-width: 54rem;
 }
 .level .level-info {
   display: flex;
@@ -1556,9 +1565,46 @@ a {
 .level .level-info .statistic .border.maximum {
   right: 0;
 }
+.level .level-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 6.875rem;
+}
+.level .level-cards .level-card {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.level .level-cards .level-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
 .level .level-cards .level-card .level-card__gift {
+  position: relative;
   width: 34.375rem;
   border-radius: 1.625rem;
-  background: linear-gradient(180deg, #010717 0%, #002033 100%);;
-  padding: 7.125rem 1rem;
+  padding: 7.125rem 3rem;
+  background: linear-gradient(180deg, #010717 0%, #002033 100%);
+  text-align: center;
+}
+.level .level-cards .level-card .level-card__gift .level-card__text {
+  font-size: 1.625rem;
+}
+.level .level-cards .level-card .level-card__gift .level-card__text.large {
+  font-size: 2rem;
+}
+.level .level-cards .level-card > .level-card__image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.level .level-cards .level-card > .level-card__image img {
+  width: 8rem;
+}
+.level .level-cards .level-card .level-card__gift .level-card__image {
+  position: absolute;
+  width: 8rem;
+  height: 8rem;
+  top: -4rem;
+  left: calc(50% - 4rem);
 }
