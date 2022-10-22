@@ -395,6 +395,13 @@ a {
   background: var(--purple);
   transition: var(--transition-fast);
 }
+.game-card .game-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
 .game-card .game-card__amount {
   font-size: 2.75rem;
   margin-bottom: 2rem;
@@ -430,17 +437,87 @@ a {
   box-shadow: 0px 0px 4px #00FFF0;
   background: var(--main-gradient);
 }
+.game-card.your {
+  position: relative;
+  background: var(--main-gradient);
+  border-top-left-radius: 0.9rem;
+  border-top-right-radius: 0.9rem;
+}
+.game-card.your .game-card__background {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 4.5rem);
+  background: var(--purple);
+  z-index: 0;
+}
+.game-card.your .game-card__background .rectangle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.game-card.your .game-card__background .rectangle .decoration {
+  background: var(--purple);
+}
+.game-card.your .game-card__background .rectangle .top-elements {
+  position: absolute;
+  width: 100%;
+  bottom: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+}
+.game-card.your .game-card__background .rectangle .top-elements .decoration {
+  /* width: 3.125rem; */
+  width: 1.8rem;
+  height: 4.5rem;
+  border-top-left-radius: 0.9rem;
+  border-top-right-radius: 0.9rem;
+}
+.game-card.your .game-card__background .rectangle .top-elements .triangle {
+  /* width: 6.25rem; */
+  /* height: 6.25rem; */
+  width: 1.5rem;
+  height: 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+.game-card.your .game-card__background .rectangle .top-elements .triangle::before {
+  content: "";
+  display: block;
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  border-radius: 50%;
+}
+.game-card.your .game-card__background .rectangle .top-elements .triangle.left::before {
+  bottom: 0;
+  left: 0;
+  /* box-shadow: -3.125rem 3.125rem 0 0 red; */
+  box-shadow: -0.75rem 0.75rem 0 0 var(--purple);
+}
+.game-card.your .game-card__background .rectangle .top-elements .triangle.right::before {
+  bottom: 0;
+  right: 0;
+  /* box-shadow: 3.125rem 3.125rem 0 0 red; */
+  box-shadow: 0.75rem 0.75rem 0 0 var(--purple);
+}
+.game-card.your .game-card__background .rectangle .top-elements .triangle.right {
+  margin-left: auto;
+}
 .game-card.your .game-card__ending {
   margin-bottom: 4.25rem;
 }
 .game-card.your .game-card__amount {
   position: relative;
   padding: 0.875rem 1rem;
-  background: var(--main-gradient);
+  /* background: var(--main-gradient); */
   border-bottom-left-radius: 1.625rem;
   border-bottom-right-radius: 1.625rem;
 }
-.game-card.your .game-card__amount::before,
+/* .game-card.your .game-card__amount::before,
 .game-card.your .game-card__amount::after {
   position: absolute;
   content: '';
@@ -454,7 +531,7 @@ a {
 }
 .game-card.your .game-card__amount::after {
   left: 100%;
-}
+} */
 .game-card.your .game-card__participate .button {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -1417,7 +1494,7 @@ a {
 }
 .game .profile__main .container > .end-soon .game-card.your,
 .game .profile__main .container > .tickets .game-card.your {
-  padding: 1.5rem 0;
+  padding-bottom: 1.5rem;
 }
 .game .profile__main .container > .end-soon .game-card__amount,
 .game .profile__main .container > .tickets .game-card__amount {
@@ -1436,6 +1513,9 @@ a {
 .game .profile__main .container > .end-soon .game-card__participate .button,
 .game .profile__main .container > .tickets .game-card__participate .button {
   border-radius: 2rem;
+}
+.game .profile__main .container > .tickets .game-card {
+  padding: 2.625rem 0;
 }
 .game .profile__main .container > *:not(.tickets) .game-card:hover {
   margin-top: -3.5rem;
@@ -1570,11 +1650,21 @@ a {
   border-radius: 0.75rem;
   background: var(--main-gradient);
 }
+@keyframes showUserLevelScale {
+  from {
+    opacity: 0.2;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
 .level .level-info .statistic .line .scale {
   height: 1rem;
   border-radius: 1rem;
   background: #040B1D;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .level .level-info .statistic .line .scale .active {
   display: flex;
@@ -1585,6 +1675,7 @@ a {
   height: 100%;
   border-radius: 1rem;
   background: linear-gradient(90deg, #6FB1FF 0%, #C4C4FF 100%);
+  animation: showUserLevelScale 0.3s ease-in-out;
 }
 .level .level-info .statistic .border {
   position: absolute;
@@ -1631,7 +1722,10 @@ a {
   align-items: center;
 }
 .level .level-cards .level-card > .level-card__image img {
-  width: 8rem;
+  width: 7.5rem;
+}
+.level .level-cards .level-card > .level-card__image.large img {
+  width: 14.375rem;
 }
 .level .level-cards .level-card .level-card__gift .level-card__image {
   position: absolute;
